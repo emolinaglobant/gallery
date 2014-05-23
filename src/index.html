@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gallery</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        
+        <link rel="stylesheet/less" type="text/css" href="less/style.less" />
+        <script src="js/less-1.7.0.min.js"></script>
+        
+        <script data-main="js/main" src="js/libs/require/require.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div id="Gallery" class="carousel slide carousel-fade">
+                <ul class="carousel-inner"></ul>
+                <ul class="carousel-indicators"></ul>
+                <h3 class="carousel-caption" id="GalleryTitle"></h3>
+                <a id="infoLink" href="#">i</a>
+            </div>
+                    
+            <div class="col-md-12 col-md-12" id="slider-thumbs">
+                  <ul class="list-inline"></ul>
+            </div>
+       </div>
+
+      <script type="text/template" id="GalleryItem">
+        <li class="active item" data-slide-number="0">
+            <a href="<? ?>" target="_blank"><img src="<? ?>" class="img-responsive"></a>
+            <h3 class="carousel-caption"><? ?></h3>
+        </li>
+      </script>
+      <script type="text/template" id="ThumbItem">
+        <li class="col-md-2"> <a id="carousel-selector-<? ?>" class="thumbnail">
+                    <img src="<? ?>" class="img-responsive">
+                  </a></li>
+      </script>
+      <script type="text/template" id="IdicatorItem">
+            <li data-target="#Gallery" data-slide-to="<? ?>" class="<? ?>"></li>
+      </script>
+        
+    </body>
+</html>
