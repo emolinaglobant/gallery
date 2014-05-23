@@ -3,8 +3,10 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/gallery/gallery'
-], function($, _, Backbone,GalleryView){
+  'views/gallery/gallery',
+  'collections/Gallery',
+  'models/Gallery'
+], function($, _, Backbone,GalleryView,GalleryModel,GalleryCollection){
   
    var AppRouter = Backbone.Router.extend({
     routes: {
@@ -23,8 +25,9 @@ define([
     app_router.on('route:defaultAction', function (actions) {
      
        // We have no matching route, lets display the home page 
-       
-        var galleryView = new GalleryView();
+        var galleryCollection = new GalleryCollection;
+        var galleryView = new GalleryView({ collection: galleryCollection });
+        
         galleryView.render();
     });
 

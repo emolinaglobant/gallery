@@ -10,11 +10,13 @@ define([
     url :'http://music.medellinstyle.com/?r=site/gallery',
     initialize : function(){
         this.fetch({
-            dataType: 'jsonp',
-            success : function (data) {
-              console.log(data);
-            }
+            dataType: 'jsonp'
           });
+       },
+       parse : function(data){
+           console.log(data);
+           this.name = data.album.name;
+           return data.photos;
        }
    
 
