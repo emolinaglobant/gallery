@@ -6,12 +6,10 @@ define([
   'views/gallery/gallery',
   'collections/Gallery',
   'models/Gallery'
-], function($, _, Backbone,GalleryView,GalleryModel,GalleryCollection){
+], function($, _, Backbone,GalleryView,GalleryCollection,GalleryModel){
   
    var AppRouter = Backbone.Router.extend({
     routes: {
-     
-      
       // Default
       '*actions': 'defaultAction'
     }
@@ -25,10 +23,19 @@ define([
     app_router.on('route:defaultAction', function (actions) {
      
        // We have no matching route, lets display the home page 
-        var galleryCollection = new GalleryCollection;
+       
+        var galleryCollection = new GalleryCollection();
         var galleryView = new GalleryView({ collection: galleryCollection });
         
-        galleryView.render();
+         galleryCollection.on("add",function(item){
+             
+             if(galleryCollection.count===galleryCollection.current)
+               galleryView.render();  
+             
+              galleryCollection.current++;
+         
+         });
+        //
     });
 
     // Unlike the above, we don't call render on this view as it will handle

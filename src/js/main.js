@@ -10,6 +10,9 @@ require.config({
     bootstrap : 'libs/bootstrap/bootstrap.min'
   },
     shim: {
+        bootstrap: {
+            deps: [ "jquery"]
+        },
         underscore: {
             exports: '_'
         },
@@ -17,6 +20,7 @@ require.config({
             deps: ["underscore", "jquery"],
             exports: "Backbone"
         }
+        
     }
 
 });
